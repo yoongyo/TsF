@@ -6,21 +6,28 @@ from django import forms
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = {
-            'name',
+        fields = [
             'title',
-            'content',
-            'language',
-            'visited_country',
-            'next_country',
-            'guide_at',
-            'email',
-            'interest',
-            'img',
-            'time',
-            'price',
-            'local'
-        }
+            'Tourtype',
+            'Country',
+            'City',
+            'Language',
+            'DetailContent',
+            'BriefContent',
+            'HashTag',
+            'MeetingPoint',
+            'MeetingTime',
+            'Map',
+            'Direction',
+            'CourseName',
+            'Duration',
+            'Price',
+            'Minimum',
+            'Maximum',
+            'Price_include',
+            'NotDate',
+            'GuestInfo',
+        ]
 
     def save(self, commit=True):
         post = Post(**self.cleaned_data)

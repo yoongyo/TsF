@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Category, Post
+from .models import Post,City
 from .forms import PostForm
 
 
@@ -7,7 +7,7 @@ def main(request):
     return render(request, 'travel/_main.html')
 
 def local_list(request):
-    queryset = Category.objects.all()
+    queryset = City.objects.all()
 
     queryset1 = Post.objects.all()
 
@@ -17,27 +17,26 @@ def local_list(request):
         'local_list' : queryset1
     })
 
-def local_detail(request, local):
-    queryset1 = Category.objects.all()
+def local_detail(request, City):
     queryset = Post.objects.all()
     path = request.path
     print(path)
     filter = path.split('/')[3]
     print(filter)
-    qs = queryset.filter(local__local_category=filter)
+    qs = queryset.filter(City__city=filter)
 
     return render(request, 'travel/local_detail.html',{
         'local_list': qs
     })
 
 
-def local_detail_form(request, local ,name):
+def local_detail_form(request, City ,pk):
     queryset = Post.objects.all()
     path = request.path
     print(path)
     filter = path.split('/')[4]
     print(filter)
-    qs = queryset.filter(name=filter)
+    qs = queryset.filter(pk=filter)
     return render(request, 'travel/local_detail_form.html',{
         'local_detail': qs,
         'filter':filter,

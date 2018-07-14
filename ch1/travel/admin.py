@@ -1,13 +1,23 @@
 from django.contrib import admin
-from .models import Category, Post
+from .models import City, Post, Country, Language, TypeOfTour
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['local', 'name', 'language','visited_country', 'next_country', 'interest', 'content', 'created_at','guide_at','email']
+    list_display = ['City', 'Price', 'title']
 
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['local_category',]
+class LaguageAdmin(admin.ModelAdmin):
+    list_display = ['language']
 
+class TypeOfTourAdmin(admin.ModelAdmin):
+    list_display = ['type']
 
+class CountryAdmin(admin.ModelAdmin):
+    list_display = ['country']
 
+class CityAdmin(admin.ModelAdmin):
+    list_display = ['city']
+
+admin.site.register(Country, CountryAdmin)
 admin.site.register(Post, PostAdmin)
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(Language, LaguageAdmin)
+admin.site.register(TypeOfTour, TypeOfTourAdmin)
+admin.site.register(City,CityAdmin)

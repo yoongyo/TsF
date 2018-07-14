@@ -6,22 +6,42 @@
 
 <link rel="stylesheet"
       href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-<div class="container">
-    <div class="col-md-3">
 
-    </div>
-    <div class="col-md-6" style="padding: 4% 0%">
-        <form method="post" action="">
-            <legend>Post Form</legend>
-            {% csrf_token %}
-            <table class="table table-bordered table-hover">
-                {{ form.as_table }}
-        </table>
-            <input type="submit" class="btn btn-primary btn-lg" />
-        </form>
-    </div>
-    <div class="col-md-3"></div>
-</div>
+
+<div class="container">
+    <div style="border:1px solid gray; margin-top:40px;">
+        <h2 style="margin-left:20px;">Create a Product</h2>
+        <div style="border-top:1px solid gray; border-bottom:1px solid gray">
+            <h2 style="margin-left:20px;">Basic Information</h2>
+        </div>
+        <div class="container" style="padding:30px;">
+            <div class="row">
+                <div class="col-md-3">
+                    Name of tour
+                    <br>
+                    <input style="width:100%" type = "text" name = "{{ form.title.name }}" id="{{ form.title.id_for_label }}">
+                </div>
+                <div class="col-md-6">
+                    Type of tour
+                    <br>
+                    {{ form.Tourtype }}
+                </div>
+            </div>
+                    <br>
+                    <br>
+                    Country
+                    <br>
+                    {{ form.Country }}
+                    {{ form.City }}
+            </div>
+                <div class="col-md-6">
+                    <div class="col-md-6">Type of tour<br><input type = "text" name = "{{ form.Tourtype.name }}" id="{{ form.Tourtype.id_for_label }}"></div>
+                    <div class="col-md-6"></div>
+                </div>
+                <div class="col-md-12"></div>
+            </div>
+        </div>
+
 <script>
 /* ??????? user_agent ??? ???? */
 var dom = document.getElementById('{{ form.user_agent.id_for_label }}'); dom.value = navigator.userAgent;

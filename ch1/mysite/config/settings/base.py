@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'travel',
     'accounts',
+    'widget_tweaks',
 
     # 로그인 부분
     'django.contrib.sites',

@@ -38,5 +38,5 @@ def login(request):
 
     return auth_login(request,
         authentication_form=LoginForm,
-        template_name='accounts/login_form.html',
+        template_name=['accounts/login_form.html','mystie/base.html'],
         extra_context={'providers': providers})
